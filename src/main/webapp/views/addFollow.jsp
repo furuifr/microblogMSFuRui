@@ -22,7 +22,7 @@
 <body>
 <div v-cloak id="app">
 
-    <i-table @on-row-click="clickRow" stript :columns="columnUnFollow" :data="dataUnFollow"></i-table>
+    <i-table @on-row-dblclick="clickRow" stript :columns="columnUnFollow" :data="dataUnFollow"></i-table>
 </div>
 <script src="../js/ajax.js"></script>
 <script src="../js/jquery-2.1.1.min.js"></script>
@@ -72,8 +72,9 @@
                             },
                             on: {
                                 click: () => {
-                                    var followId = app.dataUnFollow[params.index].followId;
+                                    var followId = app.dataUnFollow[params.index].userId;
                                     app.dataUnFollow.splice(params.index,1);
+                                    app.$Message.success("添加成功");
                                     console.log(followId);
                                     ajaxGet("/info_system/addFollowUser?followId="+followId,function(res) {
                                         if(res.code=="success") {

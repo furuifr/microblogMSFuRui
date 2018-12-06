@@ -29,7 +29,7 @@
             <i-button type="primary" icon="ios-search" @click="turnToAddPage()">添加关注</i-button>
         </i-col>
     </Row>
-    <i-table @on-row-click="clickRow" stript :columns="columnFollow" :data="dataFollow"></i-table>
+    <i-table @on-row-dblclick="clickRow" stript :columns="columnFollow" :data="dataFollow"></i-table>
 </div>
 <script src="../js/ajax.js"></script>
 <script src="../js/jquery-2.1.1.min.js"></script>
@@ -83,6 +83,7 @@
                                     var followId = app.dataFollow[params.index].followId;
                                         app.dataFollow.splice(params.index,1);
                                         console.log(followId);
+                                        app.$Message.success("删除成功");
                                         ajaxGet("/info_system/deleteFollow?followId="+followId,function() {
                                         },null,false);
                                     }

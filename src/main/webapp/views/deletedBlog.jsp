@@ -29,7 +29,7 @@
     <%--<i-button type="primary" icon="ios-search" @click="turnToAddPage()">查找</i-button>--%>
     <%--</i-col>--%>
     <%--</Row>--%>
-    <i-table @on-row-click="clickRow" stript :columns="columnBlog" :data="dataBlog"></i-table>
+    <i-table @on-row-dblclick="clickRow" stript :columns="columnBlog" :data="dataBlog"></i-table>
 </div>
 <script src="../js/ajax.js"></script>
 <script src="../js/jquery-2.1.1.min.js"></script>
@@ -82,6 +82,10 @@
                                     'on-change': (value) => {
                                         params.row.deleteFlag=value;
                                         console.log(params.row.deleteFlag);
+                                        if(params.row.deleteFlag==1)
+                                            app.$Message.success("已恢复");
+                                        else
+                                            app.$Message.success("已删除");
                                         var blogId = app.dataBlog[params.index].blogId;
                                         console.log(blogId);
                                         ajaxGet("/info_system/changeBlog?blogId="+blogId+"&flag="+params.row.deleteFlag,function() {

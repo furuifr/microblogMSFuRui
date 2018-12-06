@@ -73,7 +73,7 @@ public class FollowController {
 
     @RequestMapping(value = "/addFollowUser")
     public String addFollowUser(
-            @RequestParam("userId") int userId,
+            @RequestParam("followId") int userId,
             HttpSession session
     ){
         User user=(User) session.getAttribute("userSession");
@@ -95,8 +95,12 @@ public class FollowController {
 
     @RequestMapping(value = "/getUnFollowList")
     @ResponseBody
-    public Object getUnFollowList(@RequestParam("username") String username) {
-        List<Follow> listUnFollow=followService.listUnFollow(username);
+    public Object getUnFollowList(HttpSession session,
+            @RequestParam("username") String username
+    ) {
+        User user=(User) session.getAttribute("userSession");
+//      获取没有关注的用户
+        List<Follow> listUnFollow=followService.listUnFollow(username,user.getId());
         for(int i=0;i<listUnFollow.size();i++) {
             System.out.println(listUnFollow.get(i).getUsername());
         }

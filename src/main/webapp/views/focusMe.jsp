@@ -21,7 +21,7 @@
 </head>
 <body>
 <div v-cloak id="app">
-    <i-table @on-row-click="clickRow" stript :columns="columnFans" :data="dataFans"></i-table>
+    <i-table @on-row-dblclick="clickRow" stript :columns="columnFans" :data="dataFans"></i-table>
 </div>
 
 <script src="../js/ajax.js"></script>

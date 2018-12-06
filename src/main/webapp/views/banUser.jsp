@@ -29,7 +29,7 @@
             <%--<i-button type="primary" icon="ios-search" @click="turnToAddPage()">查找</i-button>--%>
         <%--</i-col>--%>
     <%--</Row>--%>
-    <i-table @on-row-click="clickRow" stript :columns="columnUser" :data="dataUser"></i-table>
+    <i-table @on-row-dblclick="clickRow" stript :columns="columnUser" :data="dataUser"></i-table>
 </div>
 <script src="../js/ajax.js"></script>
 <script src="../js/jquery-2.1.1.min.js"></script>
@@ -75,7 +75,7 @@
                             h('i-switch', {
                                 props: {
                                     size: 'large',
-                                    value:params.row.deleteFlag,
+                                    value: true,
                                     'true-value':'1',
                                     'false-value':'0'
                                 },
@@ -83,6 +83,10 @@
                                     'on-change': (value) => {
                                         params.row.deleteFlag=value;
                                         console.log(params.row.deleteFlag);
+                                        if(params.row.deleteFlag==1)
+                                            app.$Message.success("已恢复");
+                                        else
+                                            app.$Message.success("已删除");
                                         var userId = app.dataUser[params.index].id;
                                         console.log(userId);
                                         ajaxGet("/info_system/changeUser?userId="+userId+"&flag="+params.row.deleteFlag,function() {
