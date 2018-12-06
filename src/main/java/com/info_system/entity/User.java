@@ -6,6 +6,39 @@ public class User {
     private String password;
     private int deleteFlag;
     private int adminFlag;
+    private int fansNum;
+    private int blogNum;
+    private int followNum;
+
+    public User(Integer id, int deleteFlag) {
+        this.id = id;
+        this.deleteFlag = deleteFlag;
+    }
+
+    public int getFollowNum() {
+        return followNum;
+    }
+
+    public void setFollowNum(int followNum) {
+        this.followNum = followNum;
+    }
+
+    public int getFansNum() {
+        return fansNum;
+    }
+
+    public void setFansNum(int fansNum) {
+        this.fansNum = fansNum;
+    }
+
+    public int getBlogNum() {
+        return blogNum;
+    }
+
+    public void setBlogNum(int blogNum) {
+        this.blogNum = blogNum;
+    }
+
 
 
     public int getAdminFlag() {
@@ -65,6 +98,10 @@ public class User {
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", deleteFlag=" + deleteFlag +
+                ", adminFlag=" + adminFlag +
+                ", fansNum=" + fansNum +
+                ", blogNum=" + blogNum +
+                ", followNum=" + followNum +
                 '}';
     }
 }

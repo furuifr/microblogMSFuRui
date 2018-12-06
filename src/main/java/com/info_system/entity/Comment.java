@@ -3,7 +3,7 @@ package com.info_system.entity;
 import java.util.Date;
 
 public class Comment {
-     private int commentId;
+    private int commentId;
     private Blog blog;
     private User user;
     private String commentContent;

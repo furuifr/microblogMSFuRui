@@ -25,7 +25,7 @@
     </select>
 
     <insert id="addBlog" parameterType="com.info_system.entity.Blog">
-        insert into t_blog(blog_title,blog_content,user_id,blog_time,delete_flag,blog_pic) values(#{blogTitle},#{blogContent},#{user.id},#{blogTime},#{deleteFlag},#{blogPic})
+        insert into t_blog(blog_title,blog_content,user_id,blog_time,delete_flag,blog_pic) values(#{blogTitle},#{blogContent},#{userId},#{blogTime},#{deleteFlag},#{blogPic})
     </insert>
 
     <select id="getBlogById" parameterType="java.lang.Integer" resultMap="blogMap">
@@ -60,7 +60,7 @@
     </select>
 
     <select id="getAllBlogs" resultMap="blogMap">
-        select * from t_blog a
+        select * from t_blog;
     </select>
 
     <select id="getLikeNumByUser" resultType="java.lang.Integer">
@@ -70,5 +70,7 @@
     <select id="getCommentNumByUser" resultType="java.lang.Integer">
         select  count(*) from t_commentblog where  t_commentblog.blog_id=#{blogId} and t_commentblog.user_id=#{userId}
     </select>
+
+
 
 </mapper>

@@ -32,7 +32,7 @@
             <i-menu mode="horizontal" theme="dark" >
                 <row>
                     <i-col span="10">
-                        <div class="layout-logo"><a href="javascript:void(0);" onclick="container.trans('homepage')">信 息 发 布 系 统</a></div>
+                        <div class="layout-logo"><a href="javascript:void(0);" onclick="turnPage('home')">信 息 发 布 系 统</a></div>
                     </i-col>
                     <i-col offset="12" span="2">
                         <div class="layout-nav">
@@ -97,7 +97,7 @@
             <layout style="padding: 0 24px 24px">
                 <p style="font-size: 20px; font-weight: bold; margin: 20px 10px;">您好，${username} !</p>
                 <i-content>
-                    <iframe :src="page" frameborder="no" width="100%" height="900px">
+                        <iframe :src="page" frameborder="no" width="100%" height="900px">
 
                     </iframe>
                 </i-content>
@@ -140,6 +140,21 @@
         }else if(name=="sendBlog"){
             //跳转到发博文页面
             app.page="<%=basePath%>/info_system/sendBlog"
+        }else if(name=="focusPer") {
+            //跳转到我的关注页面
+            app.page="<%=basePath%>/info_system/focusPer"
+        }else if(name=="focusMe") {
+            //跳转到关注我的页面
+            app.page="<%=basePath%>/info_system/focusMe"
+        }else if(name=="blacklist") {
+            //跳转到拉黑用户页面
+            app.page="<%=basePath%>/info_system/banUser"
+        }else if(name=="blackBlog") {
+            //跳转到已删博文页面
+            app.page="<%=basePath%>/info_system/deletedBlog"
+        }else if(name=="message") {
+            //跳转到消息页面
+            app.page="<%=basePath%>/info_system/messageInfo"
         }
     }
 </script>

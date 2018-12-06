@@ -7,10 +7,27 @@ public class Blog {
     private String blogTitle;
     private String blogContent;
     private User user;
+    private String username;
     private Date blogTime;
     private int deleteFlag;
 
     private String blogPic;
+
+    public Blog() {
+    }
+
+    public Blog(int blogId, int deleteFlag) {
+        this.blogId = blogId;
+        this.deleteFlag = deleteFlag;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     private boolean hasLike;//判断当前用户是否有点赞该博文
     private boolean hasComment;//判断当前用户是否有评论该博文
@@ -117,6 +134,8 @@ public class Blog {
                 ", blogTime=" + blogTime +
                 ", deleteFlag=" + deleteFlag +
                 ", blogPic='" + blogPic + '\'' +
+                ", hasLike=" + hasLike +
+                ", hasComment=" + hasComment +
                 ", likeCount=" + likeCount +
                 ", commentCount=" + commentCount +
                 '}';
